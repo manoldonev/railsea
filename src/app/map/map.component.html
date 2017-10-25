@@ -1,0 +1,21 @@
+<!-- this creates a google map on the page with the given lat/lng from -->
+<!-- the component as the initial center of the map: -->
+<agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+  <!-- <agm-data-layer geoJson="https://raw.githubusercontent.com/manoldonev/railsea/master/data.geojson"></agm-data-layer> -->
+  <!-- <agm-kml-layer url="https://raw.githubusercontent.com/manoldonev/railsea/master/doc.kml"></agm-kml-layer> -->
+  
+  <agm-polyline strokeColor="blue">
+    <agm-polyline-point *ngFor="let point of oldPath;" [latitude]="point.lat" [longitude]="point.lng">
+    </agm-polyline-point>
+  </agm-polyline>
+
+  <agm-polyline strokeColor="red">
+    <agm-polyline-point *ngFor="let point of newPath;" [latitude]="point.lat" [longitude]="point.lng">
+    </agm-polyline-point>
+  </agm-polyline>
+
+  <agm-marker *ngFor="let point of stations;" [latitude]="point.lat" [longitude]="point.lng"></agm-marker>
+
+  <agm-marker [latitude]="trainLat" [longitude]="trainLng" iconUrl="assets/images/train.png" zIndex="1000"></agm-marker>
+  
+</agm-map>
