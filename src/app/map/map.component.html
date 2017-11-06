@@ -1,9 +1,8 @@
 <!-- this creates a google map on the page with the given lat/lng from -->
 <!-- the component as the initial center of the map: -->
 <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
-  <!-- <agm-data-layer geoJson="https://raw.githubusercontent.com/manoldonev/railsea/master/data.geojson"></agm-data-layer> -->
-  <!-- <agm-kml-layer url="https://raw.githubusercontent.com/manoldonev/railsea/master/doc.kml"></agm-kml-layer> -->
-  
+  <agm-data-layer geoJson="assets/data.geojson"></agm-data-layer>
+ 
   <agm-polyline strokeColor="blue">
     <agm-polyline-point *ngFor="let point of oldPath;" [latitude]="point.lat" [longitude]="point.lng">
     </agm-polyline-point>
